@@ -3,6 +3,7 @@
 
 ## Tags
 - [ROOT] : project architecture (.gitignore, CI/CD, README.md, etc...)
+- [COMP] : components work
 
 
 ## How to use it
