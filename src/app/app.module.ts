@@ -11,6 +11,7 @@ import {MatInputModule} from '@angular/material/input';
 import {BrowserModule} from '@angular/platform-browser';
 //
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 
 import {AppComponent} from './app.component';
 import {SearchImagesComponent} from './search-images/search-images.component';
@@ -32,6 +33,7 @@ import {SearchImagesComponent} from './search-images/search-images.component';
         MatNativeDateModule,
         MatCheckboxModule,
         FormsModule,
+        InfiniteScrollModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
