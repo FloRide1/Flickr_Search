@@ -11,7 +11,8 @@ import {SearchImagesComponent} from './search-images/search-images.component';
         SearchImagesComponent
     ],
     imports: [
-        BrowserModule
+        BrowserModule,
+        HttpClientModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
