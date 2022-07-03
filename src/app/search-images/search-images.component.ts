@@ -14,11 +14,13 @@ export class SearchImagesComponent implements OnInit
     keyword: string = "";
     tags: Set<string> = new Set();
     nsfw: boolean = false;
+    has_key: boolean = true;
     constructor(private flickrService: FlickrService)
     {}
 
     ngOnInit(): void
     {
+        this.has_key = this.flickrService.has_key();
     }
 
     remove_tag(event: any)

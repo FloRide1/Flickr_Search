@@ -28,6 +28,13 @@ export class FlickrService
     constructor(private http: HttpClient)
     {}
 
+    has_key()
+    {
+        if (environment.flickr.key.length === 0)
+            return false;
+        return true;
+    }
+
     search_keyword(keyword: string, tags: Set<string> = new Set(), nsfw: boolean = false)
     {
         if (this.prev_keyword === keyword)
