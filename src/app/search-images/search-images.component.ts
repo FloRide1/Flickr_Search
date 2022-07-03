@@ -43,4 +43,16 @@ export class SearchImagesComponent implements OnInit
                 });
         }
     }
+
+    onScroll()
+    {
+        if (this.keyword && this.keyword.length > 0)
+        {
+            this.flickrService.search_keyword(this.keyword, this.tags, this.nsfw)
+                .toPromise()
+                .then(res => {
+                    this.images = this.images.concat(res);
+                });
+        }
+    }
 }
