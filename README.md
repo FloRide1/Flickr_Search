@@ -16,7 +16,7 @@ npm install
 Next go to [./src/environments/environment.ts](./src/environments/environment.ts) and add your Flickr API (Public) key
 ```ts
 flickr: { 
-	key: "<HERE>",
+    key: "<HERE>",
 }
 ```
 
