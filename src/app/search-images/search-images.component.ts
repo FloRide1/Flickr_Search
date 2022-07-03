@@ -14,6 +14,9 @@ export class SearchImagesComponent implements OnInit
     keyword: string = "";
     tags: Set<string> = new Set();
     nsfw: boolean = false;
+    is_common: boolean = false;
+    is_gallery: boolean = false;
+    is_on_sale: boolean = false;
     has_key: boolean = true;
     constructor(private flickrService: FlickrService)
     {}
@@ -27,7 +30,7 @@ export class SearchImagesComponent implements OnInit
     {
         if (this.keyword && this.keyword.length > 0)
         {
-            this.flickrService.search_keyword(this.keyword, this.tags, this.nsfw)
+            this.flickrService.search_keyword(this.keyword, this.tags, this.nsfw, this.is_common, this.is_gallery, this.is_on_sale)
                 .toPromise()
                 .then(res => {
                     this.images = res;
@@ -55,6 +58,13 @@ export class SearchImagesComponent implements OnInit
 
     onScroll()
     {
-        this.search();
+        if (this.keyword && this.keyword.length > 0)
+        {
+            this.flickrService.search_keyword(this.keyword, this.tags, this.nsfw, this.is_common, this.is_gallery, this.is_on_sale)
+                .toPromise()
+                .then(res => {
+                    this.images = this.images.concat(res);
+                });
+        }
     }
 }

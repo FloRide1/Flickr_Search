@@ -35,7 +35,7 @@ export class FlickrService
         return true;
     }
 
-    search_keyword(keyword: string, tags: Set<string> = new Set(), nsfw: boolean = false)
+    search_keyword(keyword: string, tags: Set<string> = new Set(), nsfw: boolean = false, common: boolean = false, gallery: boolean = false, getty: boolean = false)
     {
         if (this.prev_keyword === keyword)
             this.curr_page++;
@@ -47,8 +47,11 @@ export class FlickrService
         const params = `&api_key=${environment.flickr.key}&text=${keyword}&format=json&nojsoncallback=1&per_page=12&page=${this.curr_page}`;
         const p_tags = tags.size != 0 ? "&tags=" + Array.from(tags).join(";") : "";
         const p_nsfw = "&safe_search=" + (nsfw ? "3" : "1");
+        const p_common = common ? "&is_common=true" : "";
+        const p_gallery = gallery ? "&is_gallery=true" : "";
+        const p_getty = getty ? "&is_getty=true" : "";
 
-        const final_url: string = url + params + p_tags + p_nsfw;
+        const final_url: string = url + params + p_tags + p_nsfw + p_common + p_gallery + p_getty;
         console.log(final_url);
         return this.http.get(final_url).pipe(map((res: any) => {
             const urlArr: any = [];

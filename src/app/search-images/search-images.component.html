@@ -17,7 +17,7 @@
         </div>
 
         <mat-form-field class="example-full-width">
-            <input matInput class="form-control" (keyup)="search($event)" placeholder="Search images">
+            <input matInput class="form-control" (keyup)="on_key_change($event)" placeholder="Search images">
         </mat-form-field>
         <br>
         <mat-form-field class="example-full-width">
@@ -27,6 +27,12 @@
         <div class="tags">
             <button type="button" class="btn badge btn-primary" *ngFor="let tag of tags" (click)="remove_tag($event)">{{tag}}</button>
         </div>
+        <br>
+        <mat-checkbox class="example-margin" [(ngModel)]="is_common">is Common</mat-checkbox>
+        <br>
+        <mat-checkbox class="example-margin" [(ngModel)]="is_gallery">is in a Gallery</mat-checkbox>
+        <br>
+        <mat-checkbox class="example-margin" [(ngModel)]="is_on_sale">Is in Sale</mat-checkbox>
         <br>
         <mat-checkbox class="example-margin" color="warn" [(ngModel)]="nsfw">NSFW</mat-checkbox>
         <br>
