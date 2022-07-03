@@ -22,13 +22,22 @@ export interface FlickrOutput {
 })
 export class FlickrService
 {
+    prev_keyword: string = "";
+    curr_page: number = 1;
+
     constructor(private http: HttpClient)
     {}
 
     search_keyword(keyword: string, tags: Set<string> = new Set(), nsfw: boolean = false)
     {
-        const url = "https://www.flickr.com/services/rest/?method=flickr.photos.search&";
-        const params = `api_key=${environment.flickr.key}&text=${keyword}&format=json&nojsoncallback=1&per_page=24`;
+        if (this.prev_keyword === keyword)
+            this.curr_page++;
+        else
+            this.curr_page = 1;
+        this.prev_keyword = keyword;
+
+        const url = "https://www.flickr.com/services/rest/?method=flickr.photos.search";
+        const params = `&api_key=${environment.flickr.key}&text=${keyword}&format=json&nojsoncallback=1&per_page=12&page=${this.curr_page}`;
         const p_tags = tags.size != 0 ? "&tags=" + Array.from(tags).join(";") : "";
         const p_nsfw = "&safe_search=" + (nsfw ? "3" : "1");
 
