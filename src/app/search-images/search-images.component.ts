@@ -12,11 +12,17 @@ export class SearchImagesComponent implements OnInit
 {
     images: any = [];
     keyword: string = "";
+    tags: Set<string> = new Set();
     constructor(private flickrService: FlickrService)
     {}
 
     ngOnInit(): void
     {
+    }
+
+    add_tags(event: any)
+    {
+        this.tags.add(event.target.value.toLowerCase());
     }
 
     search(event: any)
