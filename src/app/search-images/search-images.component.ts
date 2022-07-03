@@ -13,6 +13,7 @@ export class SearchImagesComponent implements OnInit
     images: any = [];
     keyword: string = "";
     tags: Set<string> = new Set();
+    nsfw: boolean = false;
     constructor(private flickrService: FlickrService)
     {}
 
@@ -35,7 +36,7 @@ export class SearchImagesComponent implements OnInit
         this.keyword = event.target.value.toLowerCase();
         if (this.keyword && this.keyword.length > 0)
         {
-            this.flickrService.search_keyword(this.keyword, this.tags)
+            this.flickrService.search_keyword(this.keyword, this.tags, this.nsfw)
                 .toPromise()
                 .then(res => {
                     this.images = res;
