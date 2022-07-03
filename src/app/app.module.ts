@@ -1,5 +1,6 @@
 import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -30,6 +31,7 @@ import {SearchImagesComponent} from './search-images/search-images.component';
         MatFormFieldModule,
         MatNativeDateModule,
         MatCheckboxModule,
+        FormsModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
