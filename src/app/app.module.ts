@@ -4,6 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {SearchImagesComponent} from './search-images/search-images.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -13,6 +14,7 @@ import {SearchImagesComponent} from './search-images/search-images.component';
     imports: [
         BrowserModule,
         HttpClientModule,
+        BrowserAnimationsModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
