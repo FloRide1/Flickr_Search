@@ -5,9 +5,10 @@
 - [ROOT] : project architecture (.gitignore, CI/CD, README.md, etc...)
 - [COMP] : components work
 - [SERV] : services work
+- [APP]  : app system
 
 
-## How to use it
+## How to Launch it
 First install the server:
 ```sh
 npm install
@@ -24,7 +25,17 @@ Then you can launch it
 ```sh
 # Launch developpment server
 npm start
-# OR
-# Build server
-npm build
+```
+
+## How to Build it
+The steps are nearly the same as for launching the development server, except this time you need to modify [environment.prod.ts](./src/environments/environment.prod.ts):
+```ts
+flickr: { 
+    key: "<HERE>",
+}
+```
+
+And you build it with
+```sh
+npm run-script build
 ```
