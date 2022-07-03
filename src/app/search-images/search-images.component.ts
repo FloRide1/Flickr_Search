@@ -23,19 +23,8 @@ export class SearchImagesComponent implements OnInit
         this.has_key = this.flickrService.has_key();
     }
 
-    remove_tag(event: any)
+    search()
     {
-        this.tags.delete(event.target.textContent);
-    }
-
-    add_tag(event: any)
-    {
-        this.tags.add(event.target.value.toLowerCase());
-    }
-
-    search(event: any)
-    {
-        this.keyword = event.target.value.toLowerCase();
         if (this.keyword && this.keyword.length > 0)
         {
             this.flickrService.search_keyword(this.keyword, this.tags, this.nsfw)
@@ -46,15 +35,26 @@ export class SearchImagesComponent implements OnInit
         }
     }
 
+    on_key_change(event: any)
+    {
+        this.keyword = event.target.value.toLowerCase();
+        this.search();
+    }
+
+    add_tag(event: any)
+    {
+        this.tags.add(event.target.value.toLowerCase());
+        this.search();
+    }
+
+    remove_tag(event: any)
+    {
+        this.tags.delete(event.target.textContent);
+        this.search();
+    }
+
     onScroll()
     {
-        if (this.keyword && this.keyword.length > 0)
-        {
-            this.flickrService.search_keyword(this.keyword, this.tags, this.nsfw)
-                .toPromise()
-                .then(res => {
-                    this.images = this.images.concat(res);
-                });
-        }
+        this.search();
     }
 }
