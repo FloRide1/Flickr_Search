@@ -20,7 +20,12 @@ export class SearchImagesComponent implements OnInit
     {
     }
 
-    add_tags(event: any)
+    remove_tag(event: any)
+    {
+        this.tags.delete(event.target.textContent);
+    }
+
+    add_tag(event: any)
     {
         this.tags.add(event.target.value.toLowerCase());
     }

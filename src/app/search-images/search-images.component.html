@@ -6,11 +6,11 @@
         </mat-form-field>
         <br>
         <mat-form-field class="example-full-width">
-            <input matInput #tags_input (keyup.enter)="add_tags($event); tags_input.value = ''" placeholder="Add Tags">
+            <input matInput #tags_input (keyup.enter)="add_tag($event); tags_input.value = ''" placeholder="Add Tags">
         </mat-form-field>
         <br>
         <div class="tags">
-            <button type="button" class="btn badge bg-primary" *ngFor="let tag of tags">{{tag}}</button>
+            <button type="button" class="btn badge btn-primary" *ngFor="let tag of tags" (click)="remove_tag($event)">{{tag}}</button>
         </div>
         <br>
         <mat-checkbox class="example-margin">NSFW</mat-checkbox>
