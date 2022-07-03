@@ -1,7 +1,25 @@
 <div class="container">
     <h1 class="text-center">Flickr</h1>
     <div class="form-group">
-        <input type="search" class="form-control" (keyup)="search($event)" placeholder="Search images">
+        <mat-form-field class="example-full-width">
+            <input matInput class="form-control" (keyup)="search($event)" placeholder="Search images">
+        </mat-form-field>
+        <br>
+        <mat-checkbox class="example-margin">NSFW</mat-checkbox>
+        <br>
+        <mat-form-field>
+            Min Upload Date:
+            <input matInput [matDatepicker]="min_upload_date">
+            <mat-datepicker-toggle matSuffix [for]="min_upload_date"></mat-datepicker-toggle>
+            <mat-datepicker #min_upload_date></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            Max Upload Date:
+            <input matInput [matDatepicker]="max_upload_date">
+            <mat-datepicker-toggle matSuffix [for]="max_upload_date"></mat-datepicker-toggle>
+            <mat-datepicker #max_upload_date></mat-datepicker>
+        </mat-form-field>
     </div>
 
     <div class="row">
