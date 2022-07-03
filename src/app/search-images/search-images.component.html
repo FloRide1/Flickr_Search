@@ -1,1 +1,16 @@
-<p>search-images works!</p>
+<div class="container">
+    <h1 class="text-center">Flickr</h1>
+    <div class="form-group">
+        <input type="search" class="form-control" (keyup)="search($event)" placeholder="Search images">
+    </div>
+
+    <div class="row">
+        <div *ngFor="let image of images">
+            <div class="card">
+                <a href="{{image.url}}_b.jpg">
+                    <img src="{{image.url}}_b.jpg" title="{{image.title}}">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
