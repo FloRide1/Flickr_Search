@@ -7,6 +7,10 @@
 - [SERV] : services work
 - [APP]  : app system
 
+## Example:
+| Example Light | Example Dark |
+:------:|:-------:
+|![](misc/flickr_search_example_1.png)| ![](misc/flickr_search_example_2.png)|
 
 ## How to Launch it
 First install the server:
