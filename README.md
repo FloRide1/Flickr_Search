@@ -1,4 +1,4 @@
-# Angular JS S6
+# Flickr Search
 ## By Florian "FloRide" Reimat
 
 ## Tags
@@ -6,6 +6,10 @@
 - [COMP] : components work
 - [SERV] : services work
 - [APP]  : app system
+
+## About
+This project is an Javascript Angular Image Search Engine based on Flickr API,
+it's a school project made in Epita during my S6.
 
 ## Example:
 | Example Light | Example Dark |
